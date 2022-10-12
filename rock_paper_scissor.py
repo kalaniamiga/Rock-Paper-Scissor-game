@@ -12,7 +12,7 @@ list_game_play_time=[]
 
 
 def get_player_choice():
-    """Get user input and validate it is one of the choices above"""
+    # Get user input and validate it is one of the choices above
     print('\nPick one choice from below ')
     player_choice = None
     while player_choice is None:
@@ -23,7 +23,7 @@ def get_player_choice():
 
 
 def get_computer_choice():
-    """Have the computer pick one of the valid choices at random"""
+    # Have the computer pick one of the valid choices at random
     print('Computer picked a choice --- **')
     computer_choice = random.randint(0, 2)
     computer_choice = CHOICES[computer_choice]
@@ -31,13 +31,13 @@ def get_computer_choice():
 
 
 def is_draw(player_choice, computer_choice):
-    """Check if game was a draw"""
+    # Check if game was a draw
     if player_choice == computer_choice:
         return True
 
 
 def print_winner(player_choice, computer_choice):
-    """Check to see who won"""
+    # Check to see who won
     list_game_play_time.append(1)
    
     if player_choice == 'r' and computer_choice == 's':
@@ -56,7 +56,7 @@ def print_winner(player_choice, computer_choice):
 
 
 def play_game():
-    """play the game"""
+    # play the game
     computer_choice = get_computer_choice()
     player_choice = get_player_choice()
 
@@ -77,37 +77,37 @@ def play_game():
 
 if __name__ == "__main__":
    i = True
-while i:
-    if(len(list_computer) == 5 or len(list_user) == 5):
-        i = False
-        if len(list_computer) == 5:
-            print("Computer Won !! ")
-        elif len(list_user) == 5:
-            print("You Won !! ")
+   while i:
+        if(len(list_computer) == 5 or len(list_user) == 5):
+            i = False
+            if len(list_computer) == 5:
+                print("Computer Won !! ")
+            elif len(list_user) == 5:
+                print("You Won !! ")
 
-        print('game play %s times' %(len(list_game_play_time)))   
-        print("do you want Quit or Restart the game ?")
-        player_choice = None
-        while player_choice is None:
-            player_choice = input('\n(Q)uit \nR(E)start \n\nPick: ')
-            if player_choice.lower() not in CHOICES2:
-                player_choice = None
-            if(player_choice == 'q'):
-                exit()
-            elif(player_choice == 'e'):
-                # reset here
-                list_game_play_time.clear()
-                list_computer.clear()
-                list_user.clear()
-                i = True
-                play_game()                
-            else:
-                player_choice = None
-                
-                 
-     
-    else:
-     play_game()
+            print('game play %s times' %(len(list_game_play_time)))   
+            print("do you want Quit or Restart the game ?")
+            player_choice = None
+            while player_choice is None:
+                player_choice = input('\n(Q)uit \nR(E)start \n\nPick: ')
+                if player_choice.lower() not in CHOICES2:
+                    player_choice = None
+                if(player_choice == 'q'):
+                    exit()
+                elif(player_choice == 'e'):
+                    # reset here
+                    list_game_play_time.clear()
+                    list_computer.clear()
+                    list_user.clear()
+                    i = True
+                    play_game()                
+                else:
+                    player_choice = None
+                    
+                    
+        
+        else:
+         play_game()
     
 
 
