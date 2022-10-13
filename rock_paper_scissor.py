@@ -8,6 +8,8 @@ CHOICES2 = "qre"
 list_computer=[]
 list_user=[]
 list_game_play_time=[]
+player_choice = None
+computer_choice = None
 
 
 
