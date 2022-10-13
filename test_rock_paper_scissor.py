@@ -70,3 +70,7 @@ def test_player_wins3(capsys):
     if player_choice == 's' and computer_choice == 'r':
         captured = capsys.readouterr() 
         assert captured.out == "Computer wins!"
+
+
+test_user_input_R()
+test_user_input_r()
