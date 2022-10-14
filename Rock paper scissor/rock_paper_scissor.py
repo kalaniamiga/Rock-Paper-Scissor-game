@@ -25,7 +25,7 @@ def get_computer_choice():
     '''let computer pick one choice'''
     computer_choice = random.randint(0, 2)
     computer_choice = CHOICES[computer_choice]
-    print('Computer picked a choice --- **')
+    print('\nComputer picked a choice --- **')
     return computer_choice
 
 
