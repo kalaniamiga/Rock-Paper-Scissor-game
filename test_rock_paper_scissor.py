@@ -25,7 +25,7 @@ def test_user_input_P():
         assert get_player_choice() == 'p'
 
 def test_user_input_p():
-    with mock.patch.object(builtins, 'input', lambda _: 'P'):
+    with mock.patch.object(builtins, 'input', lambda _: 'p'):
         assert get_player_choice() == 'p'
 
 def test_user_input_S():
@@ -41,36 +41,51 @@ def test_user_input_Q():
         assert get_player_choice() == 'q'
 
 def test_user_input_q():
-    with mock.patch.object(builtins, 'input', lambda _: 'Q'):
+    with mock.patch.object(builtins, 'input', lambda _: 'q'):
         assert get_player_choice() == 'q'
 
 def test_computer_choice():
     assert get_computer_choice() == 'r' or 'p' or 's'
 
-def test_player_wins(capsys):
+def test_determine_winner(capsys):
     print_winner(player_choice,computer_choice) 
     if player_choice == 'r' and computer_choice == 's':
         captured = capsys.readouterr() 
         assert captured.out == "Player wins!"
 
-def test_player_wins2(capsys):
+def test_determine_winner_2(capsys):
     print_winner(player_choice,computer_choice) 
     if player_choice == 's' and computer_choice == 'p':
         captured = capsys.readouterr() 
         assert captured.out == "Player wins!"
  
-def test_player_wins3(capsys):
+def test_determine_winner_3(capsys):
     print_winner(player_choice,computer_choice) 
     if player_choice == 'p' and computer_choice == 'r':
         captured = capsys.readouterr() 
         assert captured.out == "Player wins!"
 
-def test_player_wins3(capsys):
+def test_determine_winner_4(capsys):
     print_winner(player_choice,computer_choice) 
     if player_choice == 's' and computer_choice == 'r':
         captured = capsys.readouterr() 
         assert captured.out == "Computer wins!"
 
+def test_determine_winner_5(capsys):
+    print_winner(player_choice,computer_choice) 
+    if player_choice == 'p' and computer_choice == 's':
+        captured = capsys.readouterr() 
+        assert captured.out == "Computer wins!"
 
-test_user_input_R()
-test_user_input_r()
+def test_determine_winner_6(capsys):
+    print_winner(player_choice,computer_choice) 
+    if player_choice == 'r' and computer_choice == 'p':
+        captured = capsys.readouterr() 
+        assert captured.out == "Computer wins!"
+
+def test_is_draw():
+    if is_draw(player_choice,computer_choice):
+         assert player_choice == computer_choice
+
+
+ 
